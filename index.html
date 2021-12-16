@@ -109,7 +109,7 @@
 					<div class="col-sm-8 wow fadeInRight" data-wow-duration="0.7s" data-wow-delay="0s">
 						<p class="lead">Hi there!</p>
 						<p>
-							My name is Filipe, I'm 32 and I have over a decade of experience with Python and Django/Pyramid frameworks. <br>
+							My name is Filipe, I'm <span id="age"></span> and I have over a decade of experience with Python and Django/Pyramid frameworks. <br>
 						</p>
 						<p>
 							Python was my very first professional language. Of course I've programmed in other ones before it - good old Delphi and Turbo Pascal, why not?  =P
@@ -154,12 +154,26 @@
 							</li>
 
                             <li>
+                                <time class="v-time wow fadeInLeft" data-wow-duration="0.5s" data-wow-delay="0s"><span>2021 - present</span></time>
+                                <div class="v-icon" data-toggle="collapse" data-target="#toggle-braintrust"><i class="fa fa-minus"></i></div>
+                                <div class="v-label wow fadeInRight" data-wow-duration="0.4s" data-wow-delay="0s" >
+                                    <h4><a href="#" data-toggle="collapse" data-target="#toggle-braintrust">Braintrust</a></h4>
+                                    <p id="toggle-braintrust" class="collapse in">
+                                        <strong>Website</strong>: <a href="https://www.usebraintrust.com/" target="_blank">https://www.usebraintrust.com/</a> - <a href="https://app.usebraintrust.com/talent/29472" target="_blank">https://app.usebraintrust.com/talent/29472</a><br>
+                                        Working as a senior software engineer in the first decentralized Web3 talent network that connects top tech freelancers with the world's leading brands.<br>
+                                        <strong>Tags</strong>: Remote, English <br>
+                                        <strong>Period</strong>: From 2021-10 on. <br>
+                                    </p>
+                                </div>
+                            </li>
+
+                            <li>
                                 <time class="v-time wow fadeInLeft" data-wow-duration="0.5s" data-wow-delay="0s"><span>2016 - present</span></time>
                                 <div class="v-icon" data-toggle="collapse" data-target="#toggle-toptal"><i class="fa fa-minus"></i></div>
                                 <div class="v-label wow fadeInRight" data-wow-duration="0.4s" data-wow-delay="0s" >
                                     <h4><a href="#" data-toggle="collapse" data-target="#toggle-toptal">Toptal</a></h4>
                                     <p id="toggle-toptal" class="collapse in">
-                                        <strong>Website</strong>: <a href="http://www.toptal.com/" target="_blank">http://www.toptal.com/</a> <br>
+                                        <strong>Website</strong>: <a href="http://www.toptal.com/" target="_blank">http://www.toptal.com/</a> - <a href="https://www.toptal.com/resume/filipe-waitman" target="_blank">https://www.toptal.com/resume/filipe-waitman</a><br>
                                         Working as a senior Python freelancer on the network of the top freelance software developers in the world.<br>
                                         <strong>Tags</strong>: Remote, English <br>
                                         <strong>Period</strong>: From 2016-01 on. <br>
@@ -446,8 +460,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-6">
-						Copyright &copy; 2019. All rights reserved. <br>
-						Designed by <a href="http://cavalcanticarol.com.br/">Carol Cavalcanti</a>, developed by myself. =]
+						Copyright &copy; <span id="current-year"></span>. All rights reserved. <br>
 					</div>
 				</div>
 			</div>
@@ -477,5 +490,25 @@
 		<script src="assets/js/wow.min.js"></script>
 		<script src="assets/js/jquery.knob.min.js"></script>
 		<script src="assets/js/app.js"></script>
+        <script type="text/javascript">
+            function getAge(date_ref) {
+                // Adapted from: https://stackoverflow.com/a/13834242
+                ageInMilliseconds = Date.parse(Date()) - Date.parse(date_ref);
+                age = new Date();
+                age.setTime(ageInMilliseconds);
+                return age.getFullYear() - 1970;
+            }
+
+            function getCurrentYear(){
+                return new Date().getFullYear();
+            }
+
+            $(function(){
+                document.getElementById("age").textContent = getAge("1988-05-18");
+                document.getElementById("current-year").textContent = getCurrentYear();
+            });
+
+
+        </script>
 	</body>
 </html>
